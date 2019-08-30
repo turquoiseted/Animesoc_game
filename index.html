@@ -1,0 +1,89 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Bingo Card Generator</title>
+  <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+  <link href="styles/style.css" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+
+<body>
+<br><br><br><br><br><br><br><br><br>
+  <div id="main_body" style="padding-left: 5em" class="main_body">
+    <div id="current_cat" class="cat"> </div>
+    <div id="current_cat_name"></div>
+	<h2><button id="new_cat" onclick="addACat()">Player 1</button></h2>
+  </div>
+  
+  <div id="uuhh" style="min-width: 70em; float: left">
+   <div id="prompt" style="display:block; height: 400px; color: gray; font-size: 2.2em; max-width: 32em;">
+   </div>
+ 
+	<h2 style="margin-left: auto; margin-right: auto; text-align: center"><button id="new_cat" onclick="addACatPrompt()">Prompt</button></h2>
+  </div>
+  
+ 
+ <div style="width: 100%; display: block"> 
+  <div id="main_body_2" class="main_body">
+    <div id="current_cat_2" class="cat"> </div>
+    <div id="current_cat_name_2"></div>
+	<h2><button id="new_cat" onclick="addACat2()">Player 2</button></h2>
+  </div>
+  </br>s
+  <br><br>
+  
+ 
+ 
+
+  <script>
+    var called_cats = [];
+    var called_cat_names = [];
+    var random_colour;
+    
+    var colours = [
+"#749FDD", "#98d3e6", "#46ced8", "#62eaba", "#aceaa4", "#907DF0", "#C2A9DB", "#4984C4", "#00AB97", "#6c7d99", "#86b7aa", "#9ffce3", "#302ded", "#4241a3", "#595987", "#75a4af", "#b3d7e0", "#ffffff", "#cffcdc", "#9bdbae", "#48845a", "#534d7a", "#7d6ed1", "#a39ebc", "#d1b5f4"
+    ];
+    
+    var cat_names = [
+      "Egg", "Marik", "Phos", "Dia", "Pork Bowl", "Sir ", "Farming Buddha", "Bunny", "Tiger", "Blue Rose", "Origami", "Sensei", "Cinnabar", "Galko", "Sweet JP", "Sonoshee", "Kobayshi", "Kanna", "Hachikuji", 
+	  "Hanekawa", "Boruto", "Joseph", "Giorno", "Nurse Joy", "Madoka", "Homura", "Frog In Well", "Tanuki", "Squalo", "Bakugo", "All Might", "Hatsume", "Keima", "Elsie", "Penguin 3", "Penguin 1", "Ral", "MameShiba", "Azusa", "Mio",
+	  "Black Hanekawa", "Reigen", "Mob", "Shynns Best Girl", "Button", "Francesca", "Max", "Rosie", "Pablo", "Top Cat", "Biddy", "Ash", "Boris", "Giduk", "Missy"
+    ];
+	
+	var prompt_cat = [
+	  "Who would make the best roommate", "Whose most likely to jump in the lake", "Who is most likely to own a body pillow", "Who would make a better body pillow", 
+	  "Who would be better to introduce to your parents", "Who would win in a fight", "Who would make the better senpai", "Who would make the best harem protagonist", 
+	  "Who would most likely leaveopen porn on their laptop and then open it by accident in a lecture", "Whose most likely to forget how mirrors work", "Who is better at forkknife",
+	  "Who wouldn't thank the bus driver when they get off the bus", "Who would steal cutlery from a restraunt", "Who is most likely to defend elon musk on twitter", 
+	  "Who is most likely to use the word yeet", "Who is Most Likely to pull in a club", "Who is most likely to vote for Mr Shynn as AnimeSoc President", 
+	  "Who is most Likely to make a quiz for Animesoc", "Who is best waifu", "Who is secretly into anime", 
+	];
+    
+    function addACat() {
+      var cat_no = Math.floor(Math.random() * 43)
+	  var cat_name = cat_names[cat_no];
+      random_colour = colours[cat_no];
+       $("#current_cat_name").html("<p>" + cat_name + "<p>");
+	   $("#current_cat").html('<img src="assets/'+cat_no+'.jpg" alt="Cat" style="width:225px;height:350px;">');
+   
+    }
+	
+	 function addACat2() {
+      var cat_no = Math.floor(Math.random() * 43);
+	  var cat_name = cat_names[cat_no];
+      random_colour = colours[cat_no];
+      $("#current_cat_name_2").html("<p>" + cat_name + "<p>");
+	  $("#current_cat_2").html('<img src="assets/'+cat_no+'.jpg" alt="Cat" style="width:225px;height:350px;">');
+      
+    }
+	 function addACatPrompt() {
+      var cat_no = Math.floor(Math.random() * prompt_cat.length);
+	  var cat_name = prompt_cat[cat_no];
+      $("#prompt").html("<p>" + cat_name + "<p>");
+    }
+	
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Bingo Card Generator</title>
+    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+    <link href="styles/style.css"rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <h1 class="text-center">Cat Bingo Card Generator <button id="append" onclick="addBingoCard()">Add a card</button> </h1>
+    <div class=" col-sm-12">
+      <div class="col-offset-1">
+        <div id="card_body"> 
+      </div>
+    </div>
+  
+<script>
+var card_number = 0;
+var cat_number = 0;
+  function addBingoCard() {
+    var distinct = [];
+    
+    $('#card_body').append('<div class="card" id="card'+card_number+'"></div>');
+    for(var count = 0; count < 25; count++) {
+      var cat_no_card = Math.floor(Math.random() * 55)
+      
+      if (!distinct.includes(cat_no_card)) {
+        distinct.push(cat_no_card);
+        $('#card'+card_number).append('<div class="rectangle"><span class="cat_no_card">'+cat_no_card+'</span><img src="assets/'+cat_no_card+'.jpg" alt="Cat" style="width:5em;height:5em;"></div>');
+       
+      } else {
+        count--
+      }
+    }
+    $('#card'+card_number).append('<div class="logo"><img src="assets/catsoc.jpg" alt="Cat Society" style="height:5em;"><span class="bingo">Bingo Card</span></div>');
+    card_number++;
+  }
+
+
+</script>
+</body>
+</html>
